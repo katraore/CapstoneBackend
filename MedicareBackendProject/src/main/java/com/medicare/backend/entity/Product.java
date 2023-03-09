@@ -1,27 +1,40 @@
 package com.medicare.backend.entity;
 
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
+@Entity
 public class Product {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int pid;
 	private String pname;
 	private double price;
+	private long quantity;
 	private String description;
-	@OneToMany
-	private Category cat;
+	
 	public Product() {
 	}
-	public Product(int pid, String pname, double price, String description, Category cat) {
+	
+		
+	
+	public Product(int pid, String pname, double price, long quantity, String description) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
 		this.price = price;
+		this.quantity = quantity;
 		this.description = description;
-		this.cat = cat;
 	}
+
+
+
 	public int getPid() {
 		return pid;
 	}
@@ -46,16 +59,25 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Category getCat() {
-		return cat;
+	
+	public long getQuantity() {
+		return quantity;
 	}
-	public void setCat(Category cat) {
-		this.cat = cat;
+
+
+
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
 	}
+
+
+
 	@Override
 	public String toString() {
-		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + ", description=" + description
-				+ ", cat=" + cat + "]";
+		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + ", quantity=" + quantity
+				+ ", description=" + description + "]";
 	}
+
+
 
 }
