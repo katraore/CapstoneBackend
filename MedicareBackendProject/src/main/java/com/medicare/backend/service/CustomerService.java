@@ -10,7 +10,8 @@ public interface CustomerService {
 	public Customer login(Customer cust);
 	public List<Customer> getAllCustomers();
 	public Customer getById(int id);
-	public Customer updateProfile(Customer cust);
-	public boolean deleteCustomer(int id);
+	
+	public void deleteCustomerById(int id);
+	public Customer updateProfile(int id, Customer cust);
 
 }

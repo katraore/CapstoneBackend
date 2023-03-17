@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.medicare.backend.entity.Category;
 import com.medicare.backend.entity.Product;
 import com.medicare.backend.repository.ProductRepo;
 
@@ -39,9 +41,21 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void deleteProduct(int pid) {
+	public void deleteProduct(@PathVariable int pid) {
 		prepo.deleteById(pid);
 		
+	}
+
+	@Override
+	public Product getProductByPname(String pname) {
+		
+		return prepo.findByPname(pname);
+	}
+
+	@Override
+	public List<Product> getAllProductsByCategory(Category category) {
+		
+		return prepo.findAllProductByCategory(category);
 	}
 
 
