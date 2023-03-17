@@ -37,8 +37,6 @@ public class Product {
 	}
 
 
-
-
 	public Product(int pid, String pname, double price, long quantity, String description, Category category,
 			Cart cart) {
 		super();
